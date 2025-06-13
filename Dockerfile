@@ -1,5 +1,5 @@
 # Dockerfile
-FROM python:3.10-slim-bookworm
+FROM python:3.11-slim-bullseye
 
 WORKDIR /app
 COPY . .
