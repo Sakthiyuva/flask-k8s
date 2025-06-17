@@ -38,6 +38,7 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 sh '''
+                kubectl get pods
                 sed -i "s|<your-image-url>|$FULL_IMAGE_PATH|g" k8s/deployment.yaml
                 kubectl apply -f k8s/deployment.yaml
                 kubectl apply -f k8s/service.yaml
