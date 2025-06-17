@@ -12,6 +12,8 @@ spec:
       labels:
         app: flask-app
     spec:
+      imagePullSecrets:
+      - name: gcr-json-key
       containers:
       - name: flask-container
         image: <your-image-url>   # Replace this after you build & push image
