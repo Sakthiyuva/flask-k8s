@@ -71,7 +71,7 @@ pipeline {
                 kubectl apply -f k8s/service.yaml
                 
                 # Wait for deployment to be ready
-                kubectl rollout status deployment/flask-app --timeout=300s
+                kubectl rollout status deployment/flask-app --timeout=20s
                 
                 # Show pod status for debugging
                 kubectl get pods -l app=flask-app
