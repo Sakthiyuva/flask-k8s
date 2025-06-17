@@ -25,12 +25,13 @@ pipeline {
 
         stage('Push Docker Image to Artifact Registry') {
             steps {
-                withCredentials([file(credentialsId: 'f2f40553-8a52-474a-a809-777e96684730', variable: 'GCP_KEY_FILE')])
+                withCredentials([file(credentialsId: 'f2f40553-8a52-474a-a809-777e96684730', variable: 'GCP_KEY_FILE')]){
                 sh '''
                 gcloud auth activate-service-account --key-file=$GCP_KEY_FILE
                 gcloud auth configure-docker $REGION-docker.pkg.dev --quiet
                 docker push $FULL_IMAGE_PATH
                 '''
+                }    
             }
         }
 
