@@ -13,7 +13,7 @@ spec:
         app: flask-app
     spec:
       imagePullSecrets:
-      - name: gcr_json_key
+      - name: gcr-json-key-2
       containers:
       - name: flask-container
         image: <your-image-url>
